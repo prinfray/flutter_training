@@ -48,8 +48,24 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[],
+          children: <Widget>[
+                Container(
+              color: Colors.red,
+              height: 100,
+              
+            ),
+            Expanded(
+              child: Container(
+                color: Colors.blue,
+               
+              ),
+            ),
+            Container(
+              color: Colors.green,
+              height: 100,
+              
+            ),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
