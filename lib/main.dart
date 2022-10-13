@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 
@@ -47,21 +47,25 @@ class _MyHomePageState extends State<MyHomePage> {
                 })
           ],
         ),
-        body: ListView.separated(
-            itemCount: 200,
-            itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(index.toString()),
-                subtitle: Text('sous titre'),
-                tileColor: index.isEven ? Colors.blue:Colors.white,
-                trailing: IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.arrow_forward_ios_sharp),
-                  ),
-              );
-              },
-            separatorBuilder:(context, index) => Divider(),
-        ),
+        body: Row(
+  children: <Widget>[
+    Expanded(
+      child: TextButton(onPressed: () {}, child: Text('TextButton')),
+    ),
+    Expanded(
+      child:ElevatedButton(
+            onPressed: () {},
+            child: const Text('ElevatedButton'),
+          ),
+    ),
+    Expanded(
+      child: IconButton(
+        icon: Icon(Icons.add_box_sharp),
+        onPressed: (){},
+      )
+      ),
+  ],
+)
             // ignore: sort_child_properties_last
             // child: ListView(
             //     children: List.generate(
