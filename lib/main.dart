@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -28,51 +30,46 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     //  const TextStyle style1 = const TextStyle(
     //   color: Colors.blue, fontSize: 36);
-    
-    return Scaffold(
-      appBar: AppBar(
 
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          children: <Widget>[
-                Container(
-              color: Colors.red,
-              height: 100,
-              
-            ),
-            Expanded(
-              child: Container(
-                color: Colors.blue,
-               
-              ),
-            ),
-            Container(
-              color: Colors.green,
-              height: 100,
-              
-            ),
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('Appbar'),
+          actions: <Widget>[
+            IconButton(
+                icon: const Icon(Icons.add),
+                tooltip: 'log something on the log',
+                onPressed: () {
+                  print("this is the log from the add buttton");
+                })
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-    );
+        body: ListView.separated(
+            itemCount: 200,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text(index.toString()),
+                subtitle: Text('sous titre'),
+                tileColor: index.isEven ? Colors.blue:Colors.white,
+                trailing: IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.arrow_forward_ios_sharp),
+                  ),
+              );
+              },
+            separatorBuilder:(context, index) => Divider(),
+        ),
+            // ignore: sort_child_properties_last
+            // child: ListView(
+            //     children: List.generate(
+            //         100,
+            //         (int index) => ListTile(
+            //               title: Text("List Number - $index"),
+            //               trailing: Icon(Icons.arrow_forward),
+            //             ))),
+            );
   }
 }
