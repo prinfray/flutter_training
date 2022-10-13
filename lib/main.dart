@@ -37,43 +37,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Appbar'),
-          actions: <Widget>[
-            IconButton(
-                icon: const Icon(Icons.add),
-                tooltip: 'log something on the log',
-                onPressed: () {
-                  print("this is the log from the add buttton");
-                })
-          ],
+          title: const Text('Liste des entreprises'),
         ),
-        body: Row(
-  children: <Widget>[
-    Expanded(
-      child: TextButton(onPressed: () {}, child: Text('TextButton')),
-    ),
-    Expanded(
-      child:ElevatedButton(
-            onPressed: () {},
-            child: const Text('ElevatedButton'),
-          ),
-    ),
-    Expanded(
-      child: IconButton(
-        icon: Icon(Icons.add_box_sharp),
-        onPressed: (){},
-      )
-      ),
-  ],
-)
-            // ignore: sort_child_properties_last
-            // child: ListView(
-            //     children: List.generate(
-            //         100,
-            //         (int index) => ListTile(
-            //               title: Text("List Number - $index"),
-            //               trailing: Icon(Icons.arrow_forward),
-            //             ))),
+        body: Column(children: <Widget> [
+          Card()
+
+        ],)
             );
   }
 }
